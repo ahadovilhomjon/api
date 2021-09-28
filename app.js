@@ -16,9 +16,9 @@ app.use('/api/users', userRoutes);
 app.use('/api/products', productRoutes);
 app.use('/auth', auth);
 
-// app.get('/', (req, res) => {
-//     res.send('Hi there');
-// })
+app.get('/', (req, res) => {
+    res.send('Hi there');
+})
 
 const port = 3000;
 
