@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
     const validPassword = await bcrypt.compare(req.body.password, rows[0].password);
     if (!validPassword) return res.send('Email yoki parol xato kiritilgan!');
 
-    const token = jwt.sign({id: rows[0].id, isAdmin: rows[0].isAdmin}, process.env.SECRET_KEY);
+    const token = jwt.sign({id: rows[0].id, isAdmin: rows[0].isAdmin}, process.env.SECRET_KEY, {expiresIn: '7d'});
 
     res
         .header('x-auth-token', token)
